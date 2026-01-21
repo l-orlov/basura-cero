@@ -1,0 +1,84 @@
+:root {
+    --green: #91C650;
+    --dark-green: #22964D;
+    --almost-white: #F4F4F6;
+    --almost-black: #1F1F1F;
+    --dark-grey: #6B6D82;
+    --white: #FFFFFF;
+    --aqua-blue: #007EFF;
+    --shadow: 6px 8px 20px rgba(0,0,0,0.22);
+}
+
+* {
+    font-family: "Inter", sans-serif;
+}
+
+label, a, input, button {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--almost-black);
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+
+h2 {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+p {
+    font-weight: 400;
+    color: var(--dark-grey);
+}
+
+a {
+    cursor: pointer;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+input {
+    border: none;
+    outline: none;
+    color: var(--dark-grey);
+    background-color: var(--white);
+    padding: 0 1rem;
+    font-weight: 400;
+    border-radius: 8px;
+}
+
+button {
+    border: none;
+    font-size: 16px;
+    padding: 1.25rem 2rem;
+    border-radius: 8px;
+    background-color: var(--aqua-blue);
+    color: var(--white);
+    cursor: pointer;
+}
+
+button.wide {
+    width: 100%;
+}
+
+button.neutral {
+    background-color: transparent;
+    border: 1px solid var(--dark-green);
+    color: var(--dark-green);
+    padding: 0.5rem 2rem;
+    box-shadow: var(--shadow);
+}
+
+.screen {
+    height: 100%;
+    box-sizing: border-box;
+    border-top: 6px solid var(--green);
+}
