@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/register.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/user.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +29,7 @@ $page = isset($_GET['page']) ? htmlspecialchars($_GET['page']) : '';
 
 SWITCH ( $page ) {
     case 'register':	include "include/register.php";        break;
-    case 'home':        include "include/home.php";            break;
+    case 'user':        include "include/user.php";            break;
 
     case 'login': 
     default:			include "include/login.php";

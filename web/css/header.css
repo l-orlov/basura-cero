@@ -1,6 +1,7 @@
 header {
     padding: 0 1rem;
     border-bottom: 2px solid var(--green);
+    flex: 0 0 auto;
 }
 
 header .container {
