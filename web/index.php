@@ -1,11 +1,8 @@
 <?
-session_start();
-set_time_limit (0);
-error_reporting(E_ALL);
-ob_implicit_flush();
+require "include/functions.php";
+session_start(); 
 
-include "includes/functions.php";
-DBconnect();
+$is_authorized = is_authed();
 ?>
 
 <!DOCTYPE html>
@@ -27,25 +24,20 @@ DBconnect();
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 <body>
 
-<!-- TODO remove later -->
-<div class="tmp" style="
-    width: 410px; 
-    margin: 0 auto;
-    height: 100%;
-">
-
 <?
 $page = isset($_GET['page']) ? htmlspecialchars($_GET['page']) : '';
 
-SWITCH ( $page ) {
-    case 'register':	include "include/register.php";        break;
-    case 'user':        include "include/user.php";            break;
-
-    case 'login': 
-    default:			include "include/login.php";
+if ($is_authorized) {
+    include "include/user.php";
+} else {
+    SWITCH ( $page ) {
+        case 'register':	include "include/register.php";        break;
+        case 'login':
+        default:			include "include/login.php";
+    }
 }
+
 ?>
 
-</div>
 </body>
 </html>

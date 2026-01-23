@@ -31,11 +31,11 @@
         </div>
     </div>
     <div class="buttons">
-        <button>
+        <button class="wide">
             <img src="img/ico/message.svg">
             <h1>Contactar con soporte</h1>
         </button>
-        <button>
+        <button class="wide">
             <img src="img/ico/trash.svg">
             <h1>Retirar mis residuos</h1>
         </button>

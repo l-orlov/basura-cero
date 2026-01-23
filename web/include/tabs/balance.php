@@ -5,7 +5,6 @@
         </div>
         <div class="content">
             <img src="img/balance.png" style="width: 140px;">
-
             <div class="group">
                 <div class="bars">
                     <div class="bar">
@@ -30,11 +29,11 @@
         </div>
     </div>
     <div class="buttons">
-        <button>
+        <button class="wide">
             <img src="img/ico/box/in.svg">
             <h1>Ingresar puntos</h1>
         </button>
-        <button>
+        <button class="wide">
             <img src="img/ico/box/up.svg">
             <h1>Retirar puntos</h1>
         </button>

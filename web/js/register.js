@@ -83,5 +83,38 @@ function prevActiveStep() {
     }, 100);
 }
 
+function submitRegister() {
+    const name = register_name.value;
+    const surname = register_surname.value;
+    const document = register_document.value;
+    const phone = register_phone.value;
+    const password = register_password.value;
+    const password_confirm = register_password_confirm.value;
+
+    console.log(name, surname, document, phone, password)
+
+    const address = `${register_address_1.value} ${register_address_2.value} ${register_address_3.value}` ;
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "/include/scripts/register.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            const res = JSON.parse(xhr.responseText);
+
+            if (res.redirect) {
+                window.location.href = res.redirect;
+            } else {
+                console.log('Ooopsss, failed');
+            }
+        }
+    };
+
+    const params = `name=${encodeURIComponent(name)}&surname=${encodeURIComponent(surname)}&document=${encodeURIComponent(document)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}&password=${encodeURIComponent(password)}`;
+
+    xhr.send(params);
+}
+
 setActiveStep()
 hideButton(btn_prev)

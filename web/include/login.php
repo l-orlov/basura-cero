@@ -4,7 +4,7 @@
             <img src="img/logo.png" alt="Basura Cero" style="width: 180px;">
         </div>
 
-        <form action="">
+        <form id="login_form">
             <label for="phone">Ingrese su Numero de Teléfono:</label>
             <div class="icon-input">
                 <img src="img/ico/phone.svg">
@@ -12,7 +12,7 @@
                     required
                     type="tel" 
                     name="phone" 
-                    id="phone" 
+                    id="login_phone"
                     inputmode="tel" 
                     autocomplete="tel"
                     placeholder="54 611 6462 4836"
@@ -24,7 +24,7 @@
                 <img src="img/ico/key.svg">
                 <input 
                     required
-                    id="password"
+                    id="login_password"
                     name="password"
                     type="password"
                     autocomplete="current-password" 
@@ -36,8 +36,9 @@
             </div>
 
             <div class="btn-container">
-                <button type="submit" class="wide">Iniciar sesión</button>
+                <button type="button" class="wide" onclick="submitLogin()">Iniciar sesión</button>
             </div>
         </form>
     </div>
 </div>
+<script src="/js/login.js"></script>

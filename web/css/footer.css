@@ -39,3 +39,7 @@ footer .items .item {
 footer .items .item p {
     margin: 0;
 }
+
+footer a {
+    text-decoration: none;
+}

@@ -1,8 +1,9 @@
+```sh
 docker-compose up -d
-
 docker exec -it basura_cero_mariadb bash
-/usr/bin/mariadb -u root -p
+mariadb -u root -p
 
-enter: rootpassword
+# enter: rootpassword
 
 USE db;
+```
