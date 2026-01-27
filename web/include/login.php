@@ -31,7 +31,7 @@
                 />
             </div>
             <div class="misc">
-                <a href="/?page=register">Registrar nuevo</a>
+                <a href="?page=register">Registrar nuevo</a>
                 <a href="#">Me olvidé la contraseña</a>
             </div>
 
@@ -41,4 +41,4 @@
         </form>
     </div>
 </div>
-<script src="/js/login.js"></script>
+<script src="js/login.js"></script>

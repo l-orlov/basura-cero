@@ -25,7 +25,7 @@
     <header>
         <div class="container">
             <img src="img/logo.png" alt="Basura Cero" style="width: 90px; height 35px;">
-            <a href="/?page=login">
+            <a href="?page=login">
                 <button class="neutral">Ingresar</button>
             </a>
         </div>
