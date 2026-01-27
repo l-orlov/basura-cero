@@ -2,21 +2,20 @@ function submitLogin() {
     const phone = login_phone.value;
     const password = login_password.value;
 
-    const xhr = new XMLHttpRequest();
-    xhr.open("POST", "/include/scripts/login.php", true);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    fetch("/include/login_js.php", 
+        { method: "POST", body: JSON.stringify({ phone, password }) }
+    )
+    .then(async (res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
 
-    xhr.onreadystatechange = () => {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            const res = JSON.parse(xhr.responseText);
-
-            if (res.redirect) {
-                window.location.href = res.redirect;
-            } else {
-                console.log('Ooopsss, failed');
-            }
+        if (data.redirect) {
+            window.location.href = data.redirect;
+        } else {
+            console.log("Ooopsss, failed");
         }
-    };
-
-    xhr.send("phone=" + encodeURIComponent(phone) + "&password=" + encodeURIComponent(password));
+    })
+    .catch((err) => {
+        console.error("Login request failed:", err);
+    });
 }

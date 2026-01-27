@@ -6,7 +6,6 @@ CREATE TABLE users (
     document       VARCHAR(32)     NOT NULL,
     address        VARCHAR(32)     NOT NULL,
     password       VARCHAR(64)     NOT NULL,
-    remember_token VARCHAR(64),
     created_at INT UNSIGNED    NOT NULL DEFAULT UNIX_TIMESTAMP(),
     updated_at INT UNSIGNED    NOT NULL DEFAULT UNIX_TIMESTAMP(),
 

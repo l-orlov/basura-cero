@@ -6,29 +6,36 @@ function submitRegister() {
     const password = register_password.value
     const password_confirm = register_password_confirm.value
 
-    console.log(name, surname, document, phone, password)
+    const address = `${register_address_1.value} ${register_address_2.value} ${register_address_3.value}`
 
-    const address = `${register_address_1.value} ${register_address_2.value} ${register_address_3.value}` 
-
-    const xhr = new XMLHttpRequest()
-    xhr.open("POST", "/include/scripts/register.php", true)
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
-
-    xhr.onreadystatechange = () => {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            const res = JSON.parse(xhr.responseText)
-
-            if (res.redirect) {
-                window.location.href = res.redirect
-            } else {
-                console.log('Ooopsss, failed')
-            }
-        }
+    if (password !== password_confirm) {
+        // TODO visualization of an error
+        console.error("Passwords do not match")
+        return
     }
 
-    const params = `name=${encodeURIComponent(name)}&surname=${encodeURIComponent(surname)}&document=${encodeURIComponent(document)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}&password=${encodeURIComponent(password)}`
-
-    xhr.send(params)
+    fetch("/include/register_js.php", {
+        method: "POST",
+        body: JSON.stringify({
+            name,
+            surname,
+            document,
+            phone,
+            address,
+            password
+        })
+    })
+    .then(async (res) => {
+        const data = await res.json()
+        if (data.redirect) {
+            window.location.href = data.redirect
+        } else {
+            console.log("Ooopsss, failed")
+        }
+    })
+    .catch((err) => {
+        console.error("Register request failed:", err)
+    })
 }
 
 class ControlButton {

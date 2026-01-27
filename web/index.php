@@ -1,7 +1,7 @@
 <?
 require "include/functions.php";
 define("__ROOT__", __DIR__);
-session_start(); 
+session_start();
 
 $is_authorized = is_authed();
 ?>
