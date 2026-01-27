@@ -11,6 +11,7 @@
     width: 85%;
     margin-top: 10%;
     box-shadow: var(--shadow);
+    min-height: 360px;
 }
 
 .register .steps {
@@ -79,6 +80,7 @@
 
 .register .content p.comment {
     color: var(--almost-black);
+    font-size: 14px;
 }
 
 .register .content.hidden {
@@ -100,6 +102,6 @@
     width: 40%;
 }
 
-.register .content button[type="submit"] {
-    margin-top: 5%;
+.register .content button.submit {
+    margin: 5% 0;
 }

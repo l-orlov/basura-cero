@@ -6,7 +6,7 @@
     --dark-grey: #6B6D82;
     --white: #FFFFFF;
     --aqua-blue: #007EFF;
-    --shadow: 6px 8px 20px rgba(0,0,0,0.22);
+    --shadow: 2px 4px 5px rgba(0,0,0,0.15);
 }
 
 * {
@@ -57,12 +57,17 @@ input {
 
 button {
     border: none;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+button:not(.unset) {
     font-size: 16px;
-    padding: 1.25rem 2rem;
+    padding: 1.25rem 1rem;
     border-radius: 8px;
     background-color: var(--aqua-blue);
     color: var(--white);
-    cursor: pointer;
 }
 
 button.wide {

@@ -4,66 +4,64 @@
 <div class="register">
     <div class="view">
         <div class="steps" id="step_indicators">
-            <div class="step">
+            <button class="unset transparent step">
                 <div class="circle">1</div>
                 <div class="comment">
                     <p>Datos personales</p>
                 </div>
-            </div>
+            </button>
 
             <div class="dot-container">
                 <div class="dot"></div>
             </div>
             
-            <div class="step">
+            <button class="unset transparent step">
                 <div class="circle">2</div>
                 <div class="comment">
                     <p>Agregar contacto</p>
                 </div>
-            </div>
+            </button>
 
             <div class="dot-container">
                 <div class="dot"></div>
             </div>
 
-            <div class="step">
+            <button class="unset transparent step">
                 <div class="circle">3</div>
                 <div class="comment">
                     <p>Validar WhatsApp</p>
                 </div>
-            </div>
+            </button>
 
             <div class="dot-container">
                 <div class="dot"></div>
             </div>
 
-            <div class="step">
+            <button class="unset transparent step">
                 <div class="circle">4</div>
                 <div class="comment">
                     <p>Crear contraseña</p>
                 </div>
-            </div>
+            </button>
 
             <div class="dot-container">
                 <div class="dot"></div>
             </div>
             
-            <div class="step">
+            <button class="unset transparent step">
                 <div class="circle">5</div>
                 <div class="comment">
                     <p>Ingresar dirección</p>
                 </div>
-            </div>
+            </button>
         </div>
         <div class="controls">
-            <button class="neutral" id="btn_prev"
-                onclick="prevActiveStep()">
+            <button class="neutral" id="btn_prev">
                 <img src="img/ico/arrow/left.svg">
                 Volver
             </button>
 
-            <button class="neutral" id="btn_next"
-                onclick="nextActiveStep()">
+            <button class="neutral" id="btn_next">
                 Seguir
                 <img src="img/ico/arrow/right.svg">
             </button>
@@ -75,15 +73,15 @@
                     <input id="register_surname" required type="text" minlength="1" maxlength="50" placeholder="Apellido">
                     <input id="register_document" required type="text" minlength="1" maxlength="50" placeholder="DNI/Pasaporte">
                 <p class="comment">
-                    Al confirmar el registro, acepto <a href="#">el acuerdo de usuario</a> de timbraMe24.
+                    Al confirmar el registro, acepto <a href="#">el acuerdo de usuario</a> de Basura Cero.
                 </p>
             </div>
 
             <div class="content hidden">
                 <h1>Agregar Contacto:</h1>
-                <button class="wide">Agregar timbraMe24 a los contactos</button>
+                <button class="wide">Agregar Residuos Verde a los contactos</button>
                 <p class="comment">
-                    Se agregará el contacto de timbraMe24 a su listo de contactos en el smartphone.
+                    Se agregará el contacto de Residuos Verde a su listo de contactos en el smartphone.
                 </p>
             </div>
 
@@ -117,9 +115,7 @@
                 <input required id="register_address_2" type="text" minlength="1" maxlength="20" placeholder="Dirección completa">
                 <input required id="register_address_3" type="text" minlength="1" maxlength="10" placeholder="Número de departamento">
 
-                <h2>Si tiene un código promocional, ingréselo aquí:</h2>
-                <input type="text" minlength="1" maxlength="50" placeholder="Código promocional">
-                <button type="button" class="wide" onclick="submitRegister()">Guardar datos</button>
+                <button type="button" class="wide submit" onclick="submitRegister()">Guardar datos</button>
             </div>
         </form>
     </div>

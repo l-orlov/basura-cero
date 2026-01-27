@@ -10,7 +10,7 @@ footer .qr-container {
     margin-top: -2rem;
 }
 
-footer .qr-container > .qr {
+footer .qr-container .qr {
     width: 72px;
     height: 72px;
     border-radius: 100%;
