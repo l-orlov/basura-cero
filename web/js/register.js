@@ -168,7 +168,7 @@ class StepIndicators {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => { 
+document.addEventListener('DOMContentLoaded', () => {
     const indicators = step_indicators.querySelectorAll(":scope > :not(.dot-container)")
     const contents = personal_data.children
 

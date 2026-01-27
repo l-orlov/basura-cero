@@ -1,5 +1,6 @@
 <?
 require "include/functions.php";
+define("__ROOT__", __DIR__);
 session_start(); 
 
 $is_authorized = is_authed();
@@ -16,8 +17,8 @@ $is_authorized = is_authed();
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/register.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/user.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/dashboard.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +29,8 @@ $is_authorized = is_authed();
 $page = isset($_GET['page']) ? htmlspecialchars($_GET['page']) : '';
 
 if ($is_authorized) {
-    include "include/user.php";
+    // TODO check user type, based on it return different dashboard
+    include "include/dashboard/user.php";
 } else {
     SWITCH ( $page ) {
         case 'register':	include "include/register.php";        break;
@@ -36,7 +38,6 @@ if ($is_authorized) {
         default:			include "include/login.php";
     }
 }
-
 ?>
 
 </body>

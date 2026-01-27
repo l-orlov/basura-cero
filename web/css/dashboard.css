@@ -50,6 +50,10 @@
     color: var(--white);
 }
 
+.tab .balance .info button {
+    display: flex;
+}
+
 .tab .balance .content {
     background-color: var(--almost-white);
     display: flex;
@@ -143,6 +147,10 @@
     display: flex;
     justify-content: space-between;
     gap: 8px;
+}
+
+.tab.info {
+    margin-bottom: 8vh;
 }
 
 .tab.info .status {

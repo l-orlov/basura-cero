@@ -83,10 +83,6 @@
     font-size: 14px;
 }
 
-.register .content.hidden {
-    display: none;
-}
-
 .register .content .input-button {
     display: flex;
     gap: 1rem;
