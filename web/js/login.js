@@ -2,7 +2,7 @@ function submitLogin() {
     const phone = login_phone.value;
     const password = login_password.value;
 
-    fetch("/include/login_js.php", 
+    fetch("include/login_js.php", 
         { method: "POST", body: JSON.stringify({ phone, password }) }
     )
     .then(async (res) => {

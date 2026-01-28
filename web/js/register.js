@@ -14,7 +14,7 @@ function submitRegister() {
         return
     }
 
-    fetch("/include/register_js.php", {
+    fetch("include/register_js.php", {
         method: "POST",
         body: JSON.stringify({
             name,
