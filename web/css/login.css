@@ -53,5 +53,29 @@
 }
 
 .login .btn-container {
-    margin-top: 3rem;
+    margin-top: 3vh;
+}
+
+@media (max-width: 345px) {
+    .login .misc a {
+        font-size: 12px;
+    }
+
+    .register .steps .step > .circle {
+        font-size: 12px;
+        padding: 0.7rem;
+    }
+
+    .register .steps .step {
+        margin: 0 !important;
+    }
+
+    .register .steps .dot {
+        height: 3px !important;
+        width: 3px !important;
+    }
+
+    .register button {
+        font-size: 14px !important;
+    }
 }

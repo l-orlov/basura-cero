@@ -100,7 +100,7 @@
     padding: 0.8rem 3rem;
 }
 
-.tab .balance .bar span {
+.tab .balance .bar span:not(.hideme) {
     display: flex;
 } 
 
@@ -226,4 +226,40 @@
 
 .tab.qr .header {
     width: 95%;
+}
+
+@media (max-width: 345px) {
+    .tab .balance .content {
+        gap: 0.5rem !important;
+    }
+
+    .tab span.hideme {
+        display: none !important;
+    }
+
+    .tab .balance .btn-container button {
+        padding: 0.6rem !important;
+        width: 100% !important;
+    }
+
+    .tab .buttons {
+        gap: 0.8rem !important;
+    }
+
+    .tab .balance .content .bar p {
+        text-align: end;
+    }
+
+    .tab .notifications .content {
+        width: 60% !important;
+    }
+
+    .tab .notifications .notification span {
+        flex-direction: column-reverse !important;
+        gap: 2px !important;
+    }
+
+    .tab .content > img {
+        width: 120px;
+    }
 }

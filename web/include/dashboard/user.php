@@ -19,25 +19,25 @@ $user = get_user_info($_SESSION['user_id']);
                 </button>
             </div>
             <div class="content">
-                <img src="img/balance.svg" style="width: 140px;">
+                <img src="img/balance.svg">
 
                 <div class="group">
                     <div class="bars">
                         <div class="bar">
                             <h1>Puntos:</h1>
                             <span>
-                                <sub>p</sub><p id="p_points">******</p>
+                                <sub>p</sub><p id="p_points">****</p>
                             </span>
                         </div>
                         <div class="bar">
-                            <h1>Pesos AR:</h1>
+                            <h1>Pesos <span class="hideme">AR:</span></h1>
                             <span>
-                                <sub>$</sub><p id="p_money">******</p>
+                                <sub>$</sub><p id="p_money">****</p>
                             </span>
                         </div>
                     </div>
                     <div class="btn-container">
-                        <a href="?tab=balance" class="tab-link">
+                        <a href="?tab=balance" class="tab-link" style="display: contents;">
                             <button>Ver más</button>
                         </a>
                     </div>
@@ -62,7 +62,7 @@ $user = get_user_info($_SESSION['user_id']);
                 <h1>Saldo disponible:</h1>
             </div>
             <div class="content">
-                <img src="img/balance.svg" style="width: 140px;">
+                <img src="img/balance.svg">
                 <div class="group">
                     <div class="bars">
                         <div class="bar">
@@ -72,7 +72,7 @@ $user = get_user_info($_SESSION['user_id']);
                             </span>
                         </div>
                         <div class="bar">
-                            <h1>Pesos AR:</h1>
+                            <h1>Pesos <span class="hideme">AR:</span></h1>
                             <span>
                                 <sub>$</sub><p id="money">195000</p>
                             </span>

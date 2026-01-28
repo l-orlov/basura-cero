@@ -53,8 +53,8 @@ function toggleBalance() {
         p_money.textContent = money
         img.src = "img/ico/eye/closed.svg"
     } else {
-        p_points.textContent = '******'
-        p_money.textContent = '******'
+        p_points.textContent = '****'
+        p_money.textContent = '****'
         img.src = "img/ico/eye/open.svg"
     }
     
