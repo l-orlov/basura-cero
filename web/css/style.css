@@ -1,3 +1,6 @@
+/*
+ * Global & default styles go here
+ */
 :root {
     --green: #91C650;
     --dark-green: #22964D;
@@ -6,6 +9,7 @@
     --dark-grey: #6B6D82;
     --white: #FFFFFF;
     --aqua-blue: #007EFF;
+    --red: #FF5757;
     --shadow: 2px 4px 5px rgba(0,0,0,0.15);
 }
 
@@ -13,7 +17,7 @@
     font-family: "Inter", sans-serif;
 }
 
-label, a, input, button {
+label, a, button {
     font-size: 14px;
     font-weight: 600;
     color: var(--almost-black);
@@ -39,6 +43,10 @@ a {
     cursor: pointer;
 }
 
+img {
+    user-select: none;
+}
+
 body, html {
     margin: 0;
     padding: 0;
@@ -53,6 +61,7 @@ input {
     padding: 0 1rem;
     font-weight: 400;
     border-radius: 8px;
+    font-size: 16px;
 }
 
 button {
@@ -60,6 +69,10 @@ button {
     cursor: pointer;
     background-color: transparent;
     border: none;
+}
+
+button.shadow {
+    box-shadow: var(--shadow);
 }
 
 button:not(.unset) {
@@ -98,4 +111,29 @@ button.transparent {
 
 .hidden {
     display: none !important;
+}
+
+/*
+ * Image with red notification bubble
+ */
+div.notified {
+    position: relative;
+    display: inline-block;
+}
+
+div.notified::after {
+    content: attr(data-count);
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    height: 18px;
+    width: 18px;
+    background: var(--red);
+    line-height: 17px;
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 100%;
+    transform: translate(50%, -50%);
+    pointer-events: none;
 }

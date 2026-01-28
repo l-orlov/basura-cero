@@ -12,7 +12,11 @@
     <header>
         <div class="container">
             <div class="user">
-                <img src="img/ico/user.svg" alt="User">
+                <a href="?tab=info" class="tab-link">
+                    <div class="notified" data-count="3">
+                        <img src="img/ico/user.svg" alt="User">
+                    </div>
+                </a>
                 <div class="info">
                     <?php echo $user_name_html; ?>
                     <?php echo $user_type_html; ?>

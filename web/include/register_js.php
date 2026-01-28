@@ -6,7 +6,7 @@ function register(array $data): bool {
     global $con;
 
     // Required fields and defaults
-    $required = ['name', 'surname', 'document', 'phone', 'address', 'password'];
+    $required = ['name', 'surname', 'document', 'phone', 'address', 'floor', 'password'];
 
     foreach ($required as $key) {
         if (!isset($data[$key]) || $data[$key] === '') {
@@ -19,16 +19,17 @@ function register(array $data): bool {
     $document = $data['document'];
     $phone    = $data['phone'];
     $address  = $data['address'];
+    $floor    = $data['floor'];
     $password = $data['password'];
 
     $hashed = hash('sha256', $password);
 
     $stmt = $con->prepare(
-        "INSERT INTO users (name, surname, phone, document, address, password, created_at, updated_at) 
-            VALUES (?, ?, ?, ?, ?, ?, UNIX_TIMESTAMP(), UNIX_TIMESTAMP())"
+        "INSERT INTO users (name, surname, phone, document, address, floor, password, created_at, updated_at) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, UNIX_TIMESTAMP(), UNIX_TIMESTAMP())"
     );
 
-    $stmt->bind_param("ssssss", $name, $surname, $phone, $document, $address, $hashed);
+    $stmt->bind_param("sssssss", $name, $surname, $phone, $document, $address, $floor, $hashed);
 
     if ($stmt->execute()) {
         return true;

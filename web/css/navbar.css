@@ -55,6 +55,11 @@ nav .items .item p {
     margin: 0;
 }
 
+nav div.notified {
+    display: flex;
+    align-items: center;
+}
+
 nav a {
     text-decoration: none;
 }

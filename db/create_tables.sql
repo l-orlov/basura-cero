@@ -5,6 +5,7 @@ CREATE TABLE users (
     phone          VARCHAR(32)     NOT NULL,
     document       VARCHAR(32)     NOT NULL,
     address        VARCHAR(32)     NOT NULL,
+    floor          VARCHAR(4)      NOT NULL,
     password       VARCHAR(64)     NOT NULL,
     created_at INT UNSIGNED    NOT NULL DEFAULT UNIX_TIMESTAMP(),
     updated_at INT UNSIGNED    NOT NULL DEFAULT UNIX_TIMESTAMP(),

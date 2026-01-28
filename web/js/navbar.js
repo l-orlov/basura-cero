@@ -1,6 +1,7 @@
 const tabs = dashboard_main.querySelectorAll(".tab")
+const controls = navbar.querySelectorAll("a.tab-link")
 
-function setTab(tabName, callerEl) {
+function setTab(tabName) {
     let activeTab, requestedTab
     let activeTabName
 
@@ -21,12 +22,20 @@ function setTab(tabName, callerEl) {
     activeLink = navbar.querySelectorAll(`.tab-link.${activeTabName}`)[0]
     activeLink.classList.remove("active")
 
-
-    callerEl.classList.add("active")
+    for (const control of controls) {
+        if (control.classList.contains(tabName)) {
+            control.classList.add('active')
+        }
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => { 
-    const links = navbar.querySelectorAll(".tab-link")
+    const links = document.querySelectorAll("a.tab-link")
+    const initialTab = new URL(location.href).searchParams.get('tab');
+
+    if (initialTab) {
+        setTab(initialTab)
+    }
 
     for (let i = 0; i < links.length; i++) {
         const link = links[i]
@@ -36,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const url = new URL(link.href, location.origin)
             const tab = url.searchParams.get('tab')
-            setTab(tab, link)
+            setTab(tab)
             
             const params = new URLSearchParams(location.search)
             params.set("tab", tab)
@@ -54,3 +63,7 @@ window.addEventListener('popstate', (e) => {
         setTab(tab)
     }
 })
+
+document.addEventListener('DOMContentLoaded', () => {
+
+});

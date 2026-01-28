@@ -1,43 +1,3 @@
-function submitRegister() {
-    const name = register_name.value
-    const surname = register_surname.value
-    const document = register_document.value
-    const phone = register_phone.value
-    const password = register_password.value
-    const password_confirm = register_password_confirm.value
-
-    const address = `${register_address_1.value} ${register_address_2.value} ${register_address_3.value}`
-
-    if (password !== password_confirm) {
-        // TODO visualization of an error
-        console.error("Passwords do not match")
-        return
-    }
-
-    fetch("include/register_js.php", {
-        method: "POST",
-        body: JSON.stringify({
-            name,
-            surname,
-            document,
-            phone,
-            address,
-            password
-        })
-    })
-    .then(async (res) => {
-        const data = await res.json()
-        if (data.redirect) {
-            window.location.href = data.redirect
-        } else {
-            console.log("Ooopsss, failed")
-        }
-    })
-    .catch((err) => {
-        console.error("Register request failed:", err)
-    })
-}
-
 class ControlButton {
     constructor(el) {
         this.el = el
@@ -173,6 +133,48 @@ class StepIndicators {
             this.setBusy(false) 
         }, 100)
     }
+}
+
+function submitRegister() {
+    const name = register_name.value
+    const surname = register_surname.value
+    const document = register_document.value
+    const phone = register_phone.value
+    const password = register_password.value
+    const password_confirm = register_password_confirm.value
+
+    const address = `${register_address_1.value} ${register_address_2.value}`
+    const floor = register_address_3.value
+
+    if (password !== password_confirm) {
+        // TODO visualization of an error
+        console.error("Passwords do not match")
+        return
+    }
+
+    fetch("include/register_js.php", {
+        method: "POST",
+        body: JSON.stringify({
+            name,
+            surname,
+            document,
+            phone,
+            address,
+            floor,
+            password
+        })
+    })
+    .then(async (res) => {
+        const data = await res.json()
+        if (data.redirect) {
+            window.location.href = data.redirect
+        } else {
+            console.log("Ooopsss, failed")
+        }
+    })
+    .catch((err) => {
+        console.error("Register request failed:", err)
+    })
 }
 
 document.addEventListener('DOMContentLoaded', () => {

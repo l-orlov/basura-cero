@@ -25,7 +25,9 @@
     <div class="items right">
         <a href="?tab=notifications" class="tab-link notifications">
             <div class="item">
-                <img src="img/ico/footer/info.svg" alt="info">
+                <div class="notified" data-count="3">
+                    <img src="img/ico/footer/info.svg" alt="info">
+                </div>
                 <p>Info</p>
             </div>
         </a>

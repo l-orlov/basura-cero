@@ -16,7 +16,17 @@ header .user {
     gap: 1rem;
 }
 
+header .user a,
+header .user a div {
+    display: flex;
+    align-items: center;
+}
+
 header .user h1,
 header .user h2 {
     margin: 0;
+}
+
+header .user h2 {
+    font-weight: 400;
 }
