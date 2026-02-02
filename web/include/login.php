@@ -35,7 +35,7 @@
             </div>
             <div class="misc">
                 <a href="?page=register">Registrar nuevo</a>
-                <a href="#">Me olvidé la contraseña</a>
+                <a href="?page=restore-password">Me olvidé la contraseña</a>
             </div>
 
             <div class="btn-container">
