@@ -1,3 +1,11 @@
+const registerStepIndicatorsEl = document.getElementById("registerStepIndicators")
+const registerPrevBtn = document.getElementById("registerPrevBtn")
+const registerNextBtn = document.getElementById("registerNextBtn")
+const registerForm = document.getElementById("registerForm")
+
+const indicators = registerStepIndicatorsEl.querySelectorAll(":scope > :not(.dot-container)")
+const contents = registerForm.children
+
 class ControlButton {
     constructor(el) {
         this.el = el
@@ -26,15 +34,6 @@ class StepIndicators {
         this.currentStep = 0
         this.setActiveStep(this.currentStep)
         this.prevBtn.hide()
-
-        for (let i = 0; i < this.indicators.length; i++) {
-            this.indicators[i].addEventListener('click', () => {
-                this.setActiveStep(i)
-            })
-        }
-
-        this.prevBtn.el.addEventListener('click', () => this.prevActiveStep())
-        this.nextBtn.el.addEventListener('click', () => this.nextActiveStep())
     }
 
     isLastStep() {
@@ -74,6 +73,10 @@ class StepIndicators {
             return
         }
 
+        if (!this.isValidatedStep()) {
+            return
+        }
+
         this.setBusy(true)
         this.updateActive(this.currentStep, ++this.currentStep)
 
@@ -92,7 +95,11 @@ class StepIndicators {
 
     prevActiveStep() {
         if (this.isFirstStep()) {
-            return    
+            return
+        }
+
+        if (!this.isValidatedStep()) {
+            return
         }
 
         this.setBusy(true)
@@ -112,8 +119,11 @@ class StepIndicators {
     }
 
     setActiveStep(step) {
-        this.setBusy(true)
+        if (!this.isValidatedStep()) {
+            return    
+        }
 
+        this.setBusy(true)
         this.updateActive(this.currentStep, step)
         this.currentStep = step
 
@@ -133,26 +143,65 @@ class StepIndicators {
             this.setBusy(false) 
         }, 100)
     }
+
+    isValidatedStep() {
+        const currentContent = this.contents[this.currentStep]
+        const inputs = currentContent.querySelectorAll("input")
+
+        for (const input of inputs) {
+            input.checkValidity()
+        }
+
+        const firstInvalid = currentContent.querySelector(':invalid')
+        const currentIndicator = this.indicators[this.currentStep].children[0]
+        
+        if (firstInvalid) {
+            firstInvalid.reportValidity()
+            currentIndicator.classList.remove("valid")
+            return false
+        } 
+
+        currentIndicator.classList.add("valid")
+        return true
+    }
 }
 
+const stepIndicators = new StepIndicators(
+    indicators, contents, 
+    new ControlButton(registerPrevBtn), 
+    new ControlButton(registerNextBtn)
+)
+
 function submitRegister() {
-    const name = register_name.value
-    const surname = register_surname.value
-    const document = register_document.value
-    const phone = register_phone.value
-    const password = register_password.value
-    const password_confirm = register_password_confirm.value
+    const name = registerName.value
+    const surname = registerSurname.value
+    const userDocument = registerDocument.value
+    const phone = registerPhone.value
+    const password = registerPassword.value
+    const passwordConfirm = registerPasswordConfirm.value
 
-    const address = `${register_address_1.value} ${register_address_2.value}`
-    const floor = register_address_3.value
+    const address = `${registerAddress1.value} ${registerAddress2.value}`
+    const floor = registerAddress3.value
 
-    if (password !== password_confirm) {
-        // TODO visualization of an error
-        console.error("Passwords do not match")
+    // Ensure each step was valid
+    for (let i = 0; i < stepIndicators.indicators.length; i++) {
+        const indicator = stepIndicators.indicators[i]
+        const circle = indicator.children[0]
+
+        if (!circle.classList.contains("valid")) {
+            stepIndicators.setActiveStep(i)
+            stepIndicators.isValidatedStep()
+        }
+    }
+
+    if (password !== passwordConfirm) {
+        stepIndicators.setActiveStep(3)
+        const errorField = document.getElementById("passwordError")
+        errorField.textContent = "Las contraseñas no coinciden"
         return
     }
 
-    fetch("include/register_js.php", {
+    fetch("include/api/register.php", {
         method: "POST",
         body: JSON.stringify({
             name,
@@ -178,10 +227,12 @@ function submitRegister() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const indicators = step_indicators.querySelectorAll(":scope > :not(.dot-container)")
-    const contents = personal_data.children
+    for (let i = 0; i < indicators.length; i++) {
+        indicators[i].addEventListener('click', () => {
+            stepIndicators.setActiveStep(i)
+        })
+    }
 
-    new StepIndicators(
-        indicators, contents, new ControlButton(btn_prev), new ControlButton(btn_next)
-    ) 
+    registerPrevBtn.addEventListener('click', () => stepIndicators.prevActiveStep())
+    registerNextBtn.addEventListener('click', () => stepIndicators.nextActiveStep())
 })

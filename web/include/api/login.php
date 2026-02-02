@@ -1,5 +1,5 @@
 <?php
-require "functions.php";
+require "../functions.php";
 session_start();
 
 /*
@@ -10,7 +10,7 @@ function login(
     string $phone, 
     string $password
 ) {
-    global $con;
+    $con = DBconnect();
 
     $hashed = hash('sha256', $password);
 

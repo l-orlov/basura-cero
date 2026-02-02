@@ -8,7 +8,7 @@
     }
 ?>
 
-<?php if ($is_authorized): ?>
+<? if ($is_authorized): ?>
     <header>
         <div class="container">
             <div class="user">
@@ -18,14 +18,14 @@
                     </div>
                 </a>
                 <div class="info">
-                    <?php echo $user_name_html; ?>
-                    <?php echo $user_type_html; ?>
+                    <? echo $user_name_html; ?>
+                    <? echo $user_type_html; ?>
                 </div>
             </div>
             <img src="img/logo.png" alt="Basura Cero" style="width: 90px; height 35px;">
         </div>
     </header>
-<?php else: ?>
+<? else: ?>
     <header>
         <div class="container">
             <img src="img/logo.png" alt="Basura Cero" style="width: 90px; height 35px;">
@@ -34,4 +34,4 @@
             </a>
         </div>
     </header>
-<?php endif; ?>
+<? endif; ?>

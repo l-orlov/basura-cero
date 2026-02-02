@@ -1,5 +1,4 @@
 <?php
-$con = DBconnect();
 
 function DBconnect() {
     $config_file = __DIR__ . '/config/config.php';
@@ -32,7 +31,7 @@ function DBconnect() {
 }
 
 function get_user_info(int $id) {
-    global $con;
+    $con = DBconnect();
 
     $stmt = $con->prepare("SELECT * FROM users WHERE id = ?");
     $stmt->bind_param("i", $id);
@@ -45,7 +44,6 @@ function get_user_info(int $id) {
 }
 
 function is_authed() {
-    global $con;
 
     if (isset($_SESSION['user_id'])) {
         return true;

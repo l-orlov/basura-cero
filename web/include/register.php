@@ -3,7 +3,7 @@
 
 <div class="register">
     <div class="view">
-        <div class="steps" id="step_indicators">
+        <div class="steps" id="registerStepIndicators">
             <button class="unset transparent step">
                 <div class="circle">1</div>
                 <div class="comment">
@@ -56,22 +56,43 @@
             </button>
         </div>
         <div class="controls">
-            <button class="neutral" id="btn_prev">
+            <button class="neutral" id="registerPrevBtn">
                 <img src="img/ico/arrow/left.svg">
                 Volver
             </button>
 
-            <button class="neutral" id="btn_next">
+            <button class="neutral" id="registerNextBtn">
                 Seguir
                 <img src="img/ico/arrow/right.svg">
             </button>
         </div>
-        <form id="personal_data">
+        <div class="fake-form" id="registerForm">
             <div class="content">
                 <h1>Datos Personales:</h1>
-                    <input id="register_name" required type="text" minlength="1" maxlength="50" placeholder="Nombre">
-                    <input id="register_surname" required type="text" minlength="1" maxlength="50" placeholder="Apellido">
-                    <input id="register_document" required type="text" minlength="1" maxlength="50" placeholder="DNI/Pasaporte">
+                    <input 
+                        id="registerName" 
+                        required 
+                        type="text" 
+                        minlength="1" 
+                        maxlength="50" 
+                        placeholder="Nombre"
+                    >
+                    <input 
+                        id="registerSurname"
+                        required 
+                        type="text" 
+                        minlength="1" 
+                        maxlength="50" 
+                        placeholder="Apellido"
+                    >
+                    <input 
+                        id="registerDocument"
+                        required 
+                        type="text" 
+                        minlength="1" 
+                        maxlength="50" 
+                        placeholder="DNI/Pasaporte"
+                    >
                 <p class="comment">
                     Al confirmar el registro, acepto <a href="#">el acuerdo de usuario</a> de Basura Cero.
                 </p>
@@ -89,7 +110,12 @@
                 <h1>Validar WhatsApp:</h1>
 
                 <div class="input-button">
-                    <input id="register_phone" type="tel" placeholder="xx x xx xxxxxxxx">
+                    <input 
+                        id="registerPhone" 
+                        type="tel"
+                        required
+                        placeholder="xx x xx xxxxxxxx"
+                    >
                     <button type="button">Enviar</button>
                 </div>
 
@@ -100,20 +126,56 @@
 
             <div class="content hidden">
                 <h1>Seguridad:</h1>
-                <input required id="register_password" type="password" minlength="1" maxlength="50" placeholder="Ingrese la contraseña">
-                <input required id="register_password_confirm" type="password" minlength="1" maxlength="50" placeholder="Confirme la contraseña">
+                <input 
+                    required 
+                    id="registerPassword" 
+                    type="password" 
+                    minlength="1" 
+                    maxlength="50" 
+                    placeholder="Ingrese la contraseña"
+                >
+                <input 
+                    required 
+                    id="registerPasswordConfirm" 
+                    type="password" 
+                    minlength="1"
+                    maxlength="50" 
+                    placeholder="Confirme la contraseña"
+                >
+                <p id="passwordError"></p>
             </div>
 
 
             <div class="content hidden">
                 <h1>Dirección:</h1>
 
-                <input required id="register_address_1" type="text" minlength="1" maxlength="20" placeholder="Ingrese su dirección">
+                <input 
+                    required 
+                    id="registerAddress1" 
+                    type="text" 
+                    minlength="1" 
+                    maxlength="20" 
+                    placeholder="Ingrese su dirección"
+                >
                 <p class="comment">
                     Ingrese la calle con altura. En la lista que aparezca seleccione su dirección correspondiente completa.
                 </p>
-                <input required id="register_address_2" type="text" minlength="1" maxlength="20" placeholder="Dirección completa">
-                <input required id="register_address_3" type="text" minlength="1" maxlength="10" placeholder="Número de departamento">
+                <input 
+                    required 
+                    id="registerAddress2" 
+                    type="text" 
+                    minlength="1" 
+                    maxlength="20" 
+                    placeholder="Dirección completa"
+                >
+                <input 
+                    required 
+                    id="registerAddress3" 
+                    type="text" 
+                    minlength="1" 
+                    maxlength="10" 
+                    placeholder="Número de departamento"
+                >
 
                 <button type="button" class="wide submit" onclick="submitRegister()">Guardar datos</button>
             </div>

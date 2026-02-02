@@ -12,7 +12,7 @@
                     required
                     type="tel" 
                     name="phone" 
-                    id="login_phone"
+                    id="loginPhone"
                     inputmode="tel" 
                     autocomplete="tel"
                     placeholder="54 611 6462 4836"
@@ -24,11 +24,14 @@
                 <img src="img/ico/key.svg">
                 <input 
                     required
-                    id="login_password"
+                    id="loginPassword"
                     name="password"
                     type="password"
                     autocomplete="current-password" 
                 />
+                <button type="button" class="transparent" id="togglePasswordBtn" aria-pressed="false" onclick="togglePasswordVis()">
+                    <img src="img/ico/eye/grey-open.svg" id="togglePasswordImg">
+                </button>
             </div>
             <div class="misc">
                 <a href="?page=register">Registrar nuevo</a>

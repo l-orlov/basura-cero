@@ -1,21 +1,40 @@
-function submitLogin() {
-    const phone = login_phone.value;
-    const password = login_password.value;
+const loginPhoneEl = document.getElementById("loginPhone")
+const loginPasswordEl = document.getElementById("loginPassword")
+const togglePasswordBtn = document.getElementById("togglePasswordBtn") 
+const togglePasswordImg = document.getElementById("togglePasswordImg") 
 
-    fetch("include/login_js.php", 
+function submitLogin() {
+    const phone = loginPhoneEl.value
+    const password = loginPasswordEl.value
+
+    fetch("include/api/login.php", 
         { method: "POST", body: JSON.stringify({ phone, password }) }
     )
     .then(async (res) => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const data = await res.json();
+        if (!res.ok) throw new Error(`HTTP ${res.status}`)
+        const data = await res.json()
 
         if (data.redirect) {
-            window.location.href = data.redirect;
+            window.location.href = data.redirect
         } else {
-            console.log("Ooopsss, failed");
+            console.log("Ooopsss, failed")
         }
     })
     .catch((err) => {
-        console.error("Login request failed:", err);
-    });
+        console.error("Login request failed:", err)
+    })
+}
+
+function togglePasswordVis() {
+    const isPressed = togglePasswordBtn.getAttribute("aria-pressed")
+    
+    if (isPressed === "true") {
+        loginPasswordEl.type = "text"
+        togglePasswordBtn.setAttribute("aria-pressed", "false")
+        togglePasswordImg.src = "img/ico/eye/grey-closed.svg"
+    } else {
+        loginPasswordEl.type = "password"
+        togglePasswordBtn.setAttribute("aria-pressed", "true")
+        togglePasswordImg.src = "img/ico/eye/grey-open.svg"
+    }
 }

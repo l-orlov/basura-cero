@@ -39,6 +39,7 @@
     padding: 1rem;
     border-radius: 100%;
     color: var(--dark-green);
+    background-color: var(--white);
     border: 1.8px solid var(--dark-green);
     height: 1rem;
     width:  1rem;
@@ -52,6 +53,22 @@
 .register .step > .circle.active {
     color: var(--white);
     background-color: var(--dark-green);
+}
+
+.register .step > .circle.valid {
+    position: relative;
+}
+
+.register .step > .circle.valid::after {
+    content: "";
+    background: no-repeat center/contain url("../img/ico/valid.svg");
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    height: 18px;
+    width: 18px;
+    border-radius: 100%;
+    pointer-events: none;
 }
 
 .register .step > .comment p {
@@ -83,21 +100,25 @@
     font-size: 14px;
 }
 
-.register .content .input-button {
+.register .input-button {
     display: flex;
     gap: 1rem;
 }
 
-.register .content .input-button input {
+.register .input-button input {
     margin: 0;
     width: 60%;
 }
 
-.register .content .input-button button {
+.register .input-button button {
     padding: 1rem;
     width: 40%;
 }
 
-.register .content button.submit {
+.register button.submit {
     margin: 5% 0;
+}
+
+.register p#passwordError {
+    color: var(--red);
 }

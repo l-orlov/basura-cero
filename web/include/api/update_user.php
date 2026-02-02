@@ -3,7 +3,7 @@ include "functions.php";
 session_start();
 
 function update_user(int $id, array $data): bool {
-    global $con;
+    $con = DBconnect();
 
     // At least one updatable field required
     $allowed = ['name', 'surname', 'document', 'phone', 'address', 'floor', 'password'];

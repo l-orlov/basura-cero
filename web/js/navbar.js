@@ -56,8 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 window.addEventListener('popstate', (e) => {
-    const tab = e.state.tab || 
-                new URL(location.href).searchParams.get('tab')
+    const tab = e.state.tab || new URL(location.href).searchParams.get('tab')
 
     if (tab) {
         setTab(tab)

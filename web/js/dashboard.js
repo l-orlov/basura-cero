@@ -74,7 +74,7 @@ function updateUserInfo() {
     const address = document.getElementById('address').value;
     const floor = document.getElementById('floor').value;
 
-    fetch("include/update_user_js.php", { 
+    fetch("include/api/update_user.php", { 
         method: "POST", 
         body: JSON.stringify({
             name,

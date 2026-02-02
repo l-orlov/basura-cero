@@ -19,6 +19,7 @@ $is_authorized = is_authed();
     <link rel="stylesheet" href="css/register.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/restore_password.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,9 +34,10 @@ if ($is_authorized) {
     include "include/dashboard/user.php";
 } else {
     SWITCH ( $page ) {
-        case 'register':	include "include/register.php";        break;
+        case 'register':	       include "include/register.php";         break;
+        case 'restore-password':   include "include/restore_password.php"; break;
         case 'login':
-        default:			include "include/login.php";
+        default:			       include "include/login.php";
     }
 }
 ?>

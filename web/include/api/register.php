@@ -1,9 +1,9 @@
 <?php
-require "functions.php";
+require "../functions.php";
 session_start();
 
 function register(array $data): bool {
-    global $con;
+    $con = DBconnect();
 
     // Required fields and defaults
     $required = ['name', 'surname', 'document', 'phone', 'address', 'floor', 'password'];
