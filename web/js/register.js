@@ -204,9 +204,9 @@ function submitRegister() {
     fetch("include/api/register.php", {
         method: "POST",
         body: JSON.stringify({
+            document: userDocument,
             name,
             surname,
-            document,
             phone,
             address,
             floor,
@@ -215,8 +215,8 @@ function submitRegister() {
     })
     .then(async (res) => {
         const data = await res.json()
-        if (data.redirect) {
-            window.location.href = data.redirect
+        if (data.success) {
+            window.location.href = '?page=user'
         } else {
             console.log("Ooopsss, failed")
         }

@@ -37,20 +37,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $raw = file_get_contents('php://input');
     $body = json_decode($raw, true);
 
-    header('Content-Type: application/json');
-
     $is_success = login($body['phone'], $body['password']);
 
-    if ($is_success) {
-        echo json_encode([
-            'success' => true, 
-            'redirect' => '?page=user'
-        ]);
-    } else {
-        echo json_encode([
-            'success' => false, 
-            'redirect' => NULL
-        ]);
-    }
+    header('Content-Type: application/json');
+    echo json_encode([
+        'success' => $is_success, 
+    ]);
 }
 ?>

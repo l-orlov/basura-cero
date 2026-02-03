@@ -40,8 +40,8 @@ function changePassword() {
         if (!res.ok) throw new Error(`HTTP ${res.status}`)
         const data = await res.json()
 
-        if (data.redirect) {
-            window.location.href = data.redirect
+        if (data.sucess) {
+            window.location.href = "?page=login"
         } else {
             console.log("Ooopsss, failed")
         }

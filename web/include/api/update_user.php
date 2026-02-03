@@ -1,5 +1,5 @@
 <?
-include "functions.php";
+include "../functions.php";
 session_start();
 
 function update_user(int $id, array $data): bool {
@@ -61,20 +61,12 @@ function update_user(int $id, array $data): bool {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $raw = file_get_contents('php://input');
     $body = json_decode($raw, true);
-
-    header('Content-Type: application/json');
-
     $is_success = update_user($_SESSION['user_id'], $body);
 
-    if ($is_success) {
-        echo json_encode([
-            'success' => true, 
-        ]);
-    } else {
-        echo json_encode([
-            'success' => false, 
-        ]);
-    }
+    header('Content-Type: application/json');
+    echo json_encode([
+        'success' => $is_success, 
+    ]);
 }
 
 ?>

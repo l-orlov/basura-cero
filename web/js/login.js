@@ -14,8 +14,8 @@ function submitLogin() {
         if (!res.ok) throw new Error(`HTTP ${res.status}`)
         const data = await res.json()
 
-        if (data.redirect) {
-            window.location.href = data.redirect
+        if (data.success) {
+            window.location.href = "?page=user"
         } else {
             console.log("Ooopsss, failed")
         }

@@ -1,9 +1,9 @@
 <?
 require "include/functions.php";
 define("__ROOT__", __DIR__);
-session_start();
 
-$is_authorized = is_authed();
+session_start();
+$is_authorized = isset($_SESSION['user_id']);
 ?>
 
 <!DOCTYPE html>

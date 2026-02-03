@@ -43,13 +43,4 @@ function get_user_info(int $id) {
     return $user;
 }
 
-function is_authed() {
-
-    if (isset($_SESSION['user_id'])) {
-        return true;
-    }
-
-    return false;
-}
-
 ?>

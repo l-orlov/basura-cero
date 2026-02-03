@@ -77,18 +77,17 @@ function updateUserInfo() {
     fetch("include/api/update_user.php", { 
         method: "POST", 
         body: JSON.stringify({
-            name,
-            surname,
-            userDocument,
-            phone,
-            password,
-            address,
-            floor 
+            document: userDocument,
+            name: name,
+            surname: surname,
+            phone: phone,
+            password: password,
+            address: address,
+            floor: floor 
         })}
     )
     .then(async (res) => {
         const data = await res.json();
-
         if (data.success) {
             location.reload();
         } else {
